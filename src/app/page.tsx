@@ -1,14 +1,25 @@
 
+const mockURLs = [
+  "https://utfs.io/f/0vbOIlzL4S2APlz1OsXc5Yy3KjwmLvxGbhNsr6Ig1iF0o8zU",
+  "https://utfs.io/f/0vbOIlzL4S2ADLSYtbakO9MeasPzH4o0WvuYrbFN1U6EAy3C",
+  "https://utfs.io/f/0vbOIlzL4S2AXTXqb9ksK5CWagjyukU9A1qpEnOhxzHSwrt6",
+  "https://utfs.io/f/0vbOIlzL4S2AbHmUqZWCH6wangTR7NLvYXt2z4Quo9V85IcO"
+]
+
+const mockImages = mockURLs.map((url, index) => ({
+  id: index + 1,
+  url
+}))
+
 export default function HomePage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Practice <span className="text-[hsl(280,100%,70%)]">T3</span>
-        </h1>
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
-          <p>Practice, content coming soon</p>
-        </div>
+      <div className="container flex flex-wrap items-center justify-center gap-12 px-4 py-16">
+        {mockImages.map(image => (
+          <div key={image.id} className="w-48">
+            <img src={image.url} alt="front rage scenery"/>
+          </div>
+        ))}
       </div>
     </main>
   );
